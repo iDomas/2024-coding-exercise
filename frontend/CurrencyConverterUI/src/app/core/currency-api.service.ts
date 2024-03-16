@@ -7,7 +7,7 @@ import {ApiConstant} from "./constants/api.constant";
 @Injectable({
   providedIn: 'root'
 })
-export class CurrencyService {
+export class CurrencyApiService {
 
   constructor(private httpClient: HttpClient) { }
 

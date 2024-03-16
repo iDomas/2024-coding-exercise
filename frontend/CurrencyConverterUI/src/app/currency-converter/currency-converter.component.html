@@ -1,9 +1,9 @@
- <header class="rounded-lg shadow-2xl mb-8">
+ <header class="rounded-lg shadow-xl my-8">
     <h1 class="text-2xl font-bold p-4">Currency Converter</h1>
  </header>
 
 
-<main class="flex flex-col h-max rounded-lg shadow-2xl h-48 p-4">
+<main class="flex flex-col h-max rounded-lg shadow-2xl h-48 p-4 mb-8">
   <div class="flex justify-between pb-4">
     <div>
       <select class="" name="firstCurrencySelect">
@@ -13,9 +13,8 @@
 
     <div>
       <select class="" name="secondCurrencySelect" (change)="onCurrencySelected($event.target)">
-        <option value="EUR" disabled selected>EUR</option>
-        @for(currency of currencies; track currency.currency) {
-          <option [value]="currency.currency">
+        @for(currency of $currencies | async; track currency.currency) {
+          <option [value]="currency.currency" [disabled]="currency.currency === 'N/A'">
             {{ currency.currency }}
           </option>
         } @empty {
@@ -26,19 +25,40 @@
   </div>
 
 
+  <div class="flex flex-col justify-items-center justify-between">
     @if(!!currencySelected) {
-      <div class="flex flex-col justify-items-center justify-center">
-        <div>
-          <span class="text-lg">{{ getCurrencyRate() }}</span>
-        </div>
-        <div class="flex max-width">
-          <input class="max-width" type="number" placeholder=""/>
-        </div>
+      <div class="flex justify-center mb-2 font-bold">
+        <span class="text-lg font-semi">{{ getCurrencyRateAsString() }}</span>
+      </div>
 
-        <div>
-          <button>Convert</button>
-        </div>
+      <div class="flex flex-col justify-center mb-2">
+        <h4>EUR</h4>
+        <input
+          (keyup)="convert($event.target, AmountType.EUR)"
+          [value]="($convertedAmount | async)?.eurAmount"
+          class="w-100 border"
+          type="number"
+          step="0.01"
+        />
+      </div>
+
+      <div class="flex flex-col justify-center mb-6">
+        <h4>{{ currencySelected }}</h4>
+        <input
+          (keyup)="convert($event.target, AmountType.Custom)"
+          [value]="($convertedAmount | async)?.customCurrencyAmount"
+           class="w-100 border"
+           type="number"
+           step="0.01"
+        />
+      </div>
+
+      <div class="font-bold text-2xl flex justify-center mb-4">
+        <span>
+          {{ ($convertedAmount | async)?.convertedAmount | number: '1.2-2' }}
+          {{ getCurrencySymbol(currencySelected) }}</span>
       </div>
     }
+  </div>
 </main>
 
