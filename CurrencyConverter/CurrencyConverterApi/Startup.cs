@@ -1,6 +1,8 @@
-﻿namespace CurrencyConverterApi;
+﻿using ServiceLayer;
 
-public class Startup(IConfiguration configuration)
+namespace CurrencyConverterApi;
+
+public class Startup
 {
     public static void ConfigureServices(IServiceCollection services)
     {
@@ -8,7 +10,8 @@ public class Startup(IConfiguration configuration)
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        
+
+        services.AddServiceLayer();
     }
     
     public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)

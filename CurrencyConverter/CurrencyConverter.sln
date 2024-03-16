@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverterApi", "CurrencyConverterApi\CurrencyConverterApi.csproj", "{9AE978EB-FB9A-4A25-97B6-891D3FF30A2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{6CB27027-D2C4-4DFA-802C-7D21DD9EC9E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7687BB07-1E80-4278-B494-F3FEA405C60E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{9AE978EB-FB9A-4A25-97B6-891D3FF30A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AE978EB-FB9A-4A25-97B6-891D3FF30A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AE978EB-FB9A-4A25-97B6-891D3FF30A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB27027-D2C4-4DFA-802C-7D21DD9EC9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB27027-D2C4-4DFA-802C-7D21DD9EC9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB27027-D2C4-4DFA-802C-7D21DD9EC9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB27027-D2C4-4DFA-802C-7D21DD9EC9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7687BB07-1E80-4278-B494-F3FEA405C60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7687BB07-1E80-4278-B494-F3FEA405C60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7687BB07-1E80-4278-B494-F3FEA405C60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7687BB07-1E80-4278-B494-F3FEA405C60E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
