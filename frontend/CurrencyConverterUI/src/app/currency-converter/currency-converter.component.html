@@ -1,0 +1,44 @@
+ <header class="rounded-lg shadow-2xl mb-8">
+    <h1 class="text-2xl font-bold p-4">Currency Converter</h1>
+ </header>
+
+
+<main class="flex flex-col h-max rounded-lg shadow-2xl h-48 p-4">
+  <div class="flex justify-between pb-4">
+    <div>
+      <select class="" name="firstCurrencySelect">
+        <option value="EUR" disabled selected>EUR</option>
+      </select>
+    </div>
+
+    <div>
+      <select class="" name="secondCurrencySelect" (change)="onCurrencySelected($event.target)">
+        <option value="EUR" disabled selected>EUR</option>
+        @for(currency of currencies; track currency.currency) {
+          <option [value]="currency.currency">
+            {{ currency.currency }}
+          </option>
+        } @empty {
+          <option value="" disabled selected>No currencies</option>
+        }
+      </select>
+    </div>
+  </div>
+
+
+    @if(!!currencySelected) {
+      <div class="flex flex-col justify-items-center justify-center">
+        <div>
+          <span class="text-lg">{{ getCurrencyRate() }}</span>
+        </div>
+        <div class="flex max-width">
+          <input class="max-width" type="number" placeholder=""/>
+        </div>
+
+        <div>
+          <button>Convert</button>
+        </div>
+      </div>
+    }
+</main>
+
